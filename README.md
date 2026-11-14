@@ -86,3 +86,7 @@ Place the `aeioucompany` folder into your `BepInEx/plugins` folder
 - Added discord link to the README
 ## v1.0.0
 - Initial Release
+
+## Local installation selection
+
+`build.bat` and the user-operated `test.bat` require `GAME_PATH` or a first argument naming the installation directory containing `Lethal Company.exe`. No Steam-library drive is assumed. Missing or invalid inputs fail before building, copying or launching. `build.bat` resolves source directories relative to itself. Portability verification does not launch the game or Steam.

@@ -1,5 +1,15 @@
 @echo off
-set "GAME_PATH=E:\SteamLibrary\steamapps\common\Lethal Company"
+setlocal
+if not "%~1"=="" set "GAME_PATH=%~1"
+if not defined GAME_PATH (
+    echo Set GAME_PATH or pass the Lethal Company installation directory.
+    exit /b 2
+)
+if not exist "%GAME_PATH%\Lethal Company.exe" (
+    echo GAME_PATH must contain Lethal Company.exe.
+    exit /b 2
+)
+cd /d "%~dp0"
 mkdir "%GAME_PATH%\BepInEx\plugins\aeioucompany"
 set "TEST_DIR=%GAME_PATH%\BepInEx\plugins\aeioucompany"
 set "RELEASE_DIR=release\aeioucompany"
